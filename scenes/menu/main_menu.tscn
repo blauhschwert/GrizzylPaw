@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://kxm6f4qb4vj3"]
+
+[ext_resource type="Script" uid="uid://bfab24lnm0fes" path="res://scenes/menu/main_menu.gd" id="1_3rkf3"]
+[ext_resource type="Theme" uid="uid://bfae5mk3jobxw" path="res://assets/res/base_theme.tres" id="1_nl8w3"]
+[ext_resource type="FontFile" uid="uid://b3ixkquc81e57" path="res://assets/font/ARCADECLASSIC.TTF" id="3_247la"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70654"]
+bg_color = Color(0.85, 0.58026665, 0.272, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.26, 0.25579667, 0.0077999923, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_247la"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kiqgm"]
+bg_color = Color(0.25, 0.25, 0.25, 0.77254903)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.58599997, 0.07999998, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="MainMenu" type="Control" unique_id=1191661965]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3rkf3")
+
+[node name="Panel" type="Panel" parent="." unique_id=1796018512]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_70654")
+
+[node name="MainButtons" type="BoxContainer" parent="." unique_id=647541180]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -121.52248
+offset_right = 194.0
+offset_bottom = 121.52248
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nl8w3")
+theme_override_constants/separation = 8
+alignment = 1
+vertical = true
+
+[node name="Start" type="Button" parent="MainButtons" unique_id=1390059535]
+custom_minimum_size = Vector2(120, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start"
+
+[node name="Credits" type="Button" parent="MainButtons" unique_id=1971043377]
+custom_minimum_size = Vector2(120, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Credits"
+
+[node name="Quit" type="Button" parent="MainButtons" unique_id=636964908]
+custom_minimum_size = Vector2(120, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"
+
+[node name="Credits" type="HFlowContainer" parent="." unique_id=743287044]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -128.0
+offset_right = 208.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Credits" unique_id=1618620384]
+custom_minimum_size = Vector2(75, 20)
+layout_mode = 2
+text = "Back"
+
+[node name="HSeparator" type="HSeparator" parent="Credits" unique_id=233671259]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_247la")
+
+[node name="CreditsText" type="TextEdit" parent="Credits" unique_id=1791648516]
+custom_minimum_size = Vector2(360, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_247la")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_kiqgm")
+text = "      
+       Creator :  Blauhschwert"
+scroll_smooth = true
+scroll_fit_content_height = true
+
+[connection signal="button_down" from="MainButtons/Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="MainButtons/Credits" to="." method="_on_credits_button_down"]
+[connection signal="button_down" from="MainButtons/Quit" to="." method="_on_quit_button_down"]
+[connection signal="button_down" from="Credits/Button" to="." method="_on_button_button_down"]

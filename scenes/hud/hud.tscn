@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cc057icedsgcn"]
+
+[ext_resource type="Texture2D" uid="uid://dsjoffe5pvn31" path="res://assets/hearth.png" id="1_cgeww"]
+[ext_resource type="Texture2D" uid="uid://crxvhe8gbbxho" path="res://assets/fire.png" id="2_c45xl"]
+[ext_resource type="FontFile" uid="uid://b3ixkquc81e57" path="res://assets/font/ARCADECLASSIC.TTF" id="3_c45xl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bx4p"]
+atlas = ExtResource("2_c45xl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgtrf"]
+atlas = ExtResource("2_c45xl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7mo4"]
+atlas = ExtResource("2_c45xl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n56i7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bx4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgtrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7mo4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LiveContainer" type="Node2D" unique_id=1290572932]
+scale = Vector2(1.5, 1.5)
+
+[node name="Visual" type="Node2D" parent="." unique_id=1931886335]
+position = Vector2(55, 35)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual" unique_id=1105027467]
+z_index = 1
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_cgeww")
+hframes = 3
+
+[node name="Fire" type="AnimatedSprite2D" parent="Visual" unique_id=947625145]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_n56i7")
+autoplay = "default"
+frame_progress = 0.4550077
+
+[node name="Counter" type="Label" parent="Visual" unique_id=968905599]
+z_index = 1
+offset_left = -20.0
+offset_top = -4.6666665
+offset_right = 20.0
+offset_bottom = 18.333334
+theme_override_colors/font_outline_color = Color(0.8028333, 1, 0.089999974, 0.6745098)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_c45xl")
+theme_override_font_sizes/font_size = 18
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1

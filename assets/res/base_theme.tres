@@ -1,0 +1,23 @@
+[gd_resource type="Theme" format=3 uid="uid://bfae5mk3jobxw"]
+
+[ext_resource type="FontFile" uid="uid://b3ixkquc81e57" path="res://assets/font/ARCADECLASSIC.TTF" id="1_t82et"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pcjm"]
+bg_color = Color(0.6895001, 1, 0.31, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.22139998, 0.82, 0.36107332, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+default_font = ExtResource("1_t82et")
+Button/constants/outline_size = 6
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_t82et")
+Button/styles/normal = SubResource("StyleBoxFlat_8pcjm")
