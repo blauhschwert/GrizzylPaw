@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cuaaejtq82dm"]
 
 [ext_resource type="Texture2D" uid="uid://xkcgwtrlmms8" path="res://assets/0x72_16x16DungeonTileset.v5.png" id="1_m6w5b"]
+[ext_resource type="Script" uid="uid://cvn3gij2ohiuw" path="res://scenes/levels/world_00.gd" id="1_nrysh"]
 [ext_resource type="PackedScene" uid="uid://cb5bwacna2xwa" path="res://scenes/obstacless/ligth.tscn" id="2_hk53t"]
 [ext_resource type="PackedScene" uid="uid://0uuu0pfoikqu" path="res://scenes/player/player.tscn" id="3_nrysh"]
 
@@ -646,11 +647,15 @@ texture = ExtResource("1_m6w5b")
 [sub_resource type="TileSet" id="TileSet_7k8c1"]
 sources/0 = SubResource("TileSetAtlasSource_tsias")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hk53t"]
+radius = 12.0
+
 [node name="World00" type="Node2D" unique_id=2009047631]
+script = ExtResource("1_nrysh")
 
 [node name="Player" parent="." unique_id=188261298 instance=ExtResource("3_nrysh")]
-z_index = 1
-position = Vector2(86, 72)
+z_index = 3
+position = Vector2(113, 66)
 
 [node name="Base" type="TileMapLayer" parent="." unique_id=976325289]
 texture_filter = 1
@@ -712,3 +717,12 @@ collision_layer = 8
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls5" unique_id=1567318342]
 z_index = 1
 polygon = PackedVector2Array(271, 147, 271, 166, 391, 166, 390, 22, 614, 22, 614, 2, 368, 2, 369, 147)
+
+[node name="NextLevel" type="Area2D" parent="." unique_id=151514056]
+z_index = 1
+position = Vector2(520, 276)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel" unique_id=2081459946]
+shape = SubResource("CircleShape2D_hk53t")
+
+[connection signal="body_entered" from="NextLevel" to="." method="_on_next_level_body_entered"]
