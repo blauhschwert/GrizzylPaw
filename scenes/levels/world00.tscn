@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://xkcgwtrlmms8" path="res://assets/0x72_16x16DungeonTileset.v5.png" id="1_m6w5b"]
 [ext_resource type="Script" uid="uid://cvn3gij2ohiuw" path="res://scenes/levels/world_00.gd" id="1_nrysh"]
+[ext_resource type="PackedScene" uid="uid://ck7rhl47b4g6f" path="res://scenes/enemys/enemy_base.tscn" id="2_5wifl"]
 [ext_resource type="PackedScene" uid="uid://cb5bwacna2xwa" path="res://scenes/obstacless/ligth.tscn" id="2_hk53t"]
 [ext_resource type="PackedScene" uid="uid://0uuu0pfoikqu" path="res://scenes/player/player.tscn" id="3_nrysh"]
 
@@ -650,8 +651,10 @@ sources/0 = SubResource("TileSetAtlasSource_tsias")
 [sub_resource type="CircleShape2D" id="CircleShape2D_hk53t"]
 radius = 12.0
 
-[node name="World00" type="Node2D" unique_id=2009047631]
+[node name="World00" type="Node2D" unique_id=2009047631 node_paths=PackedStringArray("spawn_pos")]
 script = ExtResource("1_nrysh")
+enemy = ExtResource("2_5wifl")
+spawn_pos = [NodePath("SpawnPosition"), NodePath("SpawnPosition2")]
 
 [node name="Player" parent="." unique_id=188261298 instance=ExtResource("3_nrysh")]
 z_index = 3
@@ -668,61 +671,71 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAAMAAkAAAABAAMAAAAgABEAAAASAAcAAAAZAA4AAAASAAEAAAAZAA8AAAASAAEAAAAZABAAAAASAAEAAAAZABEAAAASAAEAAAAZABIAAAASAAEAAAAZABMAAAATAAIAAAAlABMAAAARAAAAAAAaABMAAAARAAAAAAAbABMAAAARAAAAAAAcABMAAAARAAAAAAAdABMAAAARAAAAAAAeABMAAAARAAAAAAAfABMAAAARAAAAAAAgABMAAAARAAAAAAAhABMAAAARAAAAAAAiABMAAAARAAAAAAAjABMAAAARAAAAAAAkABMAAAARAAAAAAAXAAkAAAAUAAIAAAAQAA0AAAAQAAAAAAARAA0AAAARAAAAAAASAA0AAAARAAAAAAATAA0AAAARAAAAAAAUAA0AAAARAAAAAAAVAA0AAAARAAAAAAAWAA0AAAARAAAAAAAXAA0AAAARAAAAAAAYAA0AAAARAAAAAAAZAA0AAAASAAAAAAAQAA4AAAAQAAEAAAAQAA8AAAAUAAIAAAARAA8AAAADAAAAAAAPAA8AAAARAAAAAAAOAA8AAAARAAAAAAANAA8AAAARAAAAAAAMAA8AAAARAAAAAAALAA8AAAARAAAAAAAKAA8AAAARAAAAAAAJAA8AAAARAAAAAAAIAA8AAAARAAAAAAAHAA8AAAARAAAAAAAGAA8AAAARAAAAAAAFAA8AAAARAAAAAAAEAA8AAAARAAAAAAADAA8AAAARAAAAAAACAA8AAAARAAAAAAABAA8AAAARAAAAAAAmABMAAAARAAAAAAA=")
 tile_set = SubResource("TileSet_7k8c1")
 
-[node name="Ligth" parent="." unique_id=1313383341 instance=ExtResource("2_hk53t")]
-position = Vector2(78, 220)
-
-[node name="Ligth2" parent="." unique_id=41323453 instance=ExtResource("2_hk53t")]
-position = Vector2(51, 66)
-
-[node name="Ligth3" parent="." unique_id=834888239 instance=ExtResource("2_hk53t")]
-position = Vector2(593, 66)
-
-[node name="Ligth4" parent="." unique_id=209922108 instance=ExtResource("2_hk53t")]
-position = Vector2(429, 236)
-
-[node name="Walls" type="StaticBody2D" parent="." unique_id=2768051]
-position = Vector2(10, 10)
-collision_layer = 8
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=617352043]
-polygon = PackedVector2Array(270, -2, 270, 22, 6, 22, 6, 262, -2, 262, -2, -2)
-
-[node name="Walls2" type="StaticBody2D" parent="." unique_id=1952541809]
-position = Vector2(10, 10)
-collision_layer = 8
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls2" unique_id=1698628222]
-polygon = PackedVector2Array(270, 22, 262, 22, 262, 166, 270, 166)
-
-[node name="Walls3" type="StaticBody2D" parent="." unique_id=1358895890]
-position = Vector2(10, 10)
-collision_layer = 8
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls3" unique_id=1707485642]
-z_index = 1
-polygon = PackedVector2Array(6, 243, 6, 262, 278, 262, 278, 230, 373, 230, 374, 326, 619, 326, 619, 307, 394, 307, 393, 211, 257, 211, 257, 244)
-
-[node name="Walls4" type="StaticBody2D" parent="." unique_id=1379832547]
-position = Vector2(10, 10)
-collision_layer = 8
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls4" unique_id=1975397242]
-z_index = 1
-polygon = PackedVector2Array(619, 307, 614, 307, 614, 2, 618, 2)
-
-[node name="Walls5" type="StaticBody2D" parent="." unique_id=1897877277]
-position = Vector2(10, 10)
-collision_layer = 8
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls5" unique_id=1567318342]
-z_index = 1
-polygon = PackedVector2Array(271, 147, 271, 166, 391, 166, 390, 22, 614, 22, 614, 2, 368, 2, 369, 147)
-
 [node name="NextLevel" type="Area2D" parent="." unique_id=151514056]
 z_index = 1
 position = Vector2(520, 276)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel" unique_id=2081459946]
 shape = SubResource("CircleShape2D_hk53t")
+
+[node name="Walls6" type="Node2D" parent="." unique_id=571816543]
+
+[node name="Wall" type="StaticBody2D" parent="Walls6" unique_id=2768051]
+position = Vector2(10, 10)
+collision_layer = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls6/Wall" unique_id=617352043]
+polygon = PackedVector2Array(270, -2, 270, 22, 6, 22, 6, 262, -2, 262, -2, -2)
+
+[node name="Wall01" type="StaticBody2D" parent="Walls6" unique_id=1952541809]
+position = Vector2(10, 10)
+collision_layer = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls6/Wall01" unique_id=1698628222]
+polygon = PackedVector2Array(270, 22, 262, 22, 262, 166, 270, 166)
+
+[node name="Wall02" type="StaticBody2D" parent="Walls6" unique_id=1358895890]
+position = Vector2(10, 10)
+collision_layer = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls6/Wall02" unique_id=1707485642]
+z_index = 1
+polygon = PackedVector2Array(6, 243, 6, 262, 278, 262, 278, 230, 373, 230, 374, 326, 619, 326, 619, 307, 394, 307, 393, 211, 257, 211, 257, 244)
+
+[node name="Wall03" type="StaticBody2D" parent="Walls6" unique_id=1379832547]
+position = Vector2(10, 10)
+collision_layer = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls6/Wall03" unique_id=1975397242]
+z_index = 1
+polygon = PackedVector2Array(619, 307, 614, 307, 614, 2, 618, 2)
+
+[node name="Wall04" type="StaticBody2D" parent="Walls6" unique_id=1897877277]
+position = Vector2(10, 10)
+collision_layer = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls6/Wall04" unique_id=1567318342]
+z_index = 1
+polygon = PackedVector2Array(271, 147, 271, 166, 391, 166, 390, 22, 614, 22, 614, 2, 368, 2, 369, 147)
+
+[node name="Etc" type="Node2D" parent="." unique_id=1583497454]
+
+[node name="Ligth" parent="Etc" unique_id=1313383341 instance=ExtResource("2_hk53t")]
+position = Vector2(78, 220)
+
+[node name="Ligth2" parent="Etc" unique_id=41323453 instance=ExtResource("2_hk53t")]
+position = Vector2(51, 66)
+
+[node name="Ligth3" parent="Etc" unique_id=834888239 instance=ExtResource("2_hk53t")]
+position = Vector2(593, 66)
+
+[node name="Ligth4" parent="Etc" unique_id=209922108 instance=ExtResource("2_hk53t")]
+position = Vector2(429, 236)
+
+[node name="SpawnPosition" type="Marker2D" parent="." unique_id=769123119]
+position = Vector2(128, 192)
+
+[node name="SpawnPosition2" type="Marker2D" parent="." unique_id=5562214]
+position = Vector2(512, 74)
 
 [connection signal="body_entered" from="NextLevel" to="." method="_on_next_level_body_entered"]

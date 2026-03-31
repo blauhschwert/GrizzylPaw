@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b3r1lu2l43wp7"]
+
+[ext_resource type="Texture2D" uid="uid://xkcgwtrlmms8" path="res://assets/0x72_16x16DungeonTileset.v5.png" id="1_qieud"]
+
+[node name="BaseEnemy" type="Sprite2D" unique_id=1288202469]
+texture = ExtResource("1_qieud")
+region_enabled = true
+region_rect = Rect2(164, 225, 8, 14)

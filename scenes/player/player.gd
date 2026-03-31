@@ -5,42 +5,33 @@ enum PlayerStates {IDLE, WALK, ATTACK}
 
 const SPEED = 100.0
 
-var direction : Vector2 = Vector2.DOWN
-var player_state : PlayerStates = PlayerStates.IDLE
+var input_vector : = Vector2.ZERO
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("move_down"):
-		direction = Vector2.DOWN
-		player_state = PlayerStates.WALK
-	elif Input.is_action_just_pressed("move_up"):
-		direction = Vector2.UP
-		player_state = PlayerStates.WALK
-	elif Input.is_action_just_pressed("move_left"):
-		direction = Vector2.LEFT
-		player_state = PlayerStates.WALK
-	elif Input.is_action_just_pressed("move_right"):
-		direction = Vector2.RIGHT
-		player_state = PlayerStates.WALK
-	else:
-		direction = Vector2.ZERO
-		player_state = PlayerStates.IDLE
-	
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var playback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
 
 func _physics_process(delta: float) -> void:
-	play_animation()
-	velocity = direction * SPEED
-	move_and_slide()
+	
+	var state = playback.get_current_node()
+	
+	if state == "MoveState":
+	
+		input_vector = Input.get_vector("move_left","move_right","move_up","move_down")
+		
+		if input_vector != Vector2.ZERO:
+			var direction_vector : = Vector2(input_vector.x, -input_vector.y)
+			update_blend_position(direction_vector)
+		
+		if Input.is_action_just_pressed("attack"):
+			playback.travel("AttackState")
+		
+		velocity = input_vector * SPEED
+		
+		move_and_slide()
+	elif state == "Attack":
+		pass
 
-func play_animation() -> void:
-	match player_state:
-		PlayerStates.IDLE:
-			$AnimationPlayer.play("idle")
-		PlayerStates.WALK:
-			if direction == Vector2.DOWN:
-				$AnimationPlayer.play("run_down")
-			elif direction == Vector2.LEFT:
-				$AnimationPlayer.play("run_left")
-			elif direction == Vector2.RIGHT:
-				$AnimationPlayer.play("run_right")
-			else:
-				$AnimationPlayer.play("run_up")
+
+func update_blend_position(direction_vector : Vector2) -> void:
+		animation_tree.set("parameters/StateMachine/MoveState/RunState/blend_position",direction_vector)
+		animation_tree.set("parameters/StateMachine/MoveState/StandState/blend_position",direction_vector)

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ck7rhl47b4g6f"]
+
+[ext_resource type="Script" uid="uid://dcra6y18ynixn" path="res://scenes/enemys/enemy_base.gd" id="1_1c1br"]
+[ext_resource type="PackedScene" uid="uid://b3r1lu2l43wp7" path="res://scenes/enemys/resource/base_enemy.tscn" id="2_j5cx7"]
+[ext_resource type="PackedScene" uid="uid://cntuap536j27" path="res://scenes/enemys/resource/soldier_enemy.tscn" id="3_k6btd"]
+[ext_resource type="PackedScene" uid="uid://do5kvgu0577oq" path="res://scenes/enemys/resource/extrem_enemy.tscn" id="4_tybg1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j5cx7"]
+
+[node name="EnemyBase" type="CharacterBody2D" unique_id=162551966]
+script = ExtResource("1_1c1br")
+enemy_texture = Array[PackedScene]([ExtResource("2_j5cx7"), ExtResource("3_k6btd"), ExtResource("4_tybg1")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1425569753]
+shape = SubResource("CapsuleShape2D_j5cx7")
