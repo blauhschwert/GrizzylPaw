@@ -33,10 +33,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BearPunch/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 2)]
+}
 
 [sub_resource type="Animation" id="Animation_0owmy"]
 resource_name = "attack_down"
-length = 0.9
+length = 1.2666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -49,10 +61,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 6, 7, 0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BearPunch/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 2), Vector2(3, 8), Vector2(4, 2)]
+}
 
 [sub_resource type="Animation" id="Animation_qek5x"]
 resource_name = "attack_left"
-length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -75,7 +98,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BearPunch/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 2), Vector2(-8, 2), Vector2(-2, 2)]
 }
 
 [sub_resource type="Animation" id="Animation_5gtgg"]
@@ -103,12 +138,23 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BearPunch/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.43333337, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 2), Vector2(6, 2), Vector2(1, 2)]
 }
 
 [sub_resource type="Animation" id="Animation_h17s1"]
 resource_name = "attack_up"
-length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -120,6 +166,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [3, 8, 9, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BearPunch/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 2), Vector2(5, -6), Vector2(5, 2)]
 }
 
 [sub_resource type="Animation" id="Animation_75vfm"]
@@ -441,11 +499,14 @@ transitions = ["Start", "MoveState", SubResource("AnimationNodeStateMachineTrans
 graph_offset = Vector2(-135.59111, 0)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uf5tr"]
-graph_offset = Vector2(-447, -21)
+graph_offset = Vector2(-296, 10)
 nodes/output/position = Vector2(280, 120)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_kvlxm")
 nodes/StateMachine/position = Vector2(-100, 100)
 node_connections = [&"output", 0, &"StateMachine"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
+radius = 2.236068
 
 [node name="Player" type="CharacterBody2D" unique_id=188261298]
 collision_mask = 12
@@ -472,6 +533,15 @@ autoplay = &"run_down"
 tree_root = SubResource("AnimationNodeBlendTree_uf5tr")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
-parameters/StateMachine/AttackState/blend_position = Vector2(-0.008028567, 0.08433735)
+parameters/StateMachine/AttackState/blend_position = Vector2(-0.0776093, 0.036144495)
 parameters/StateMachine/MoveState/RunState/blend_position = Vector2(-0.03300625, 0.6626506)
 parameters/StateMachine/MoveState/StandState/blend_position = Vector2(-0.0008920431, 0.0060241222)
+
+[node name="BearPunch" type="Area2D" parent="." unique_id=1468665903]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BearPunch" unique_id=1714494689]
+position = Vector2(3, 2)
+shape = SubResource("CircleShape2D_dovo2")
+
+[connection signal="body_entered" from="BearPunch" to="." method="_on_bear_punch_body_entered"]
