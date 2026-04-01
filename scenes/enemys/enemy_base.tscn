@@ -10,6 +10,9 @@
 radius = 8.0
 height = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k6btd"]
+radius = 64.0
+
 [node name="EnemyBase" type="CharacterBody2D" unique_id=162551966]
 collision_layer = 2
 script = ExtResource("1_1c1br")
@@ -23,3 +26,11 @@ offset_left = 0.0
 offset_top = -16.0
 offset_right = 0.0
 offset_bottom = -16.0
+
+[node name="VisionRange" type="Area2D" parent="." unique_id=616202389]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionRange" unique_id=79700139]
+shape = SubResource("CircleShape2D_k6btd")
+
+[connection signal="health_depleted" from="LiveBar" to="." method="_on_live_bar_health_depleted"]
+[connection signal="body_entered" from="VisionRange" to="." method="_on_vision_range_body_entered"]

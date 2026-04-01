@@ -44,4 +44,6 @@ func update_blend_position(direction_vector : Vector2) -> void:
 
 
 func _on_bear_punch_body_entered(body: Node2D) -> void:
-	print(body.name)
+	#print(body.name)
+	if body is EnemyBase:
+		body.take_damage(4)
