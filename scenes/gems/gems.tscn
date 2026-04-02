@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ce7ck3af14qqd"]
+
+[ext_resource type="Script" uid="uid://c6ouu7w2viwlp" path="res://scenes/gems/gems.gd" id="1_1snv3"]
+[ext_resource type="PackedScene" uid="uid://cte4peaibssmt" path="res://scenes/gems/gem_scenes/base.tscn" id="2_wrgvf"]
+[ext_resource type="PackedScene" uid="uid://cnkffwa4h2lm8" path="res://scenes/gems/gem_scenes/super.tscn" id="3_dby56"]
+[ext_resource type="PackedScene" uid="uid://b3d8mdx36f5rc" path="res://scenes/gems/gem_scenes/extrem.tscn" id="4_0p5e2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1snv3"]
+radius = 64.0
+
+[node name="Gems" type="Node2D" unique_id=675979662]
+z_index = 3
+script = ExtResource("1_1snv3")
+xp_gems = Array[PackedScene]([ExtResource("2_wrgvf"), ExtResource("3_dby56"), ExtResource("4_0p5e2")])
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1520075461]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1109451779]
+shape = SubResource("CircleShape2D_1snv3")

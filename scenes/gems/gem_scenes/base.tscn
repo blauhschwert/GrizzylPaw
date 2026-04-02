@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cte4peaibssmt"]
+
+[ext_resource type="Texture2D" uid="uid://bj6ml23wtpjgg" path="res://assets/gems/gem_red.png" id="1_0x6ga"]
+
+[node name="Base" type="Sprite2D" unique_id=2142138777]
+texture = ExtResource("1_0x6ga")

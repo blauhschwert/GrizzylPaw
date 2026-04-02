@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://bal1u4o7oambv"]
+
+[ext_resource type="Texture2D" uid="uid://xkcgwtrlmms8" path="res://assets/0x72_16x16DungeonTileset.v5.png" id="1_qkj4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkj4h"]
+size = Vector2(16, 13)
+
+[node name="Sign" type="StaticBody2D" unique_id=396458668]
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217821997]
+texture = ExtResource("1_qkj4h")
+region_enabled = true
+region_rect = Rect2(118, 166, 4, 9)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1421847564]
+position = Vector2(0, 3)
+scale = Vector2(0.5, 0.5)
+color = Color(0.55, 0.36134997, 0.01099999, 1)
+polygon = PackedVector2Array(-16, -24, -16, -16, -16, -8, -4.7683716e-07, -8, 16, -8, 16, -16, 16, -24)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=87751292]
+position = Vector2(0, 3)
+scale = Vector2(0.5, 0.5)
+color = Color(0.81, 0.52933496, 0.008099993, 1)
+polygon = PackedVector2Array(-16, -24, -14, -16, -16, -8, 0, -10, 16, -8, 14, -16, 16, -24, 0, -22)
+
+[node name="Text" type="Node2D" parent="." unique_id=61142663]
+
+[node name="letter" type="Line2D" parent="Text" unique_id=2111916611]
+points = PackedVector2Array(-7, -8, -5, -8, -4, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter12" type="Line2D" parent="Text" unique_id=201450529]
+position = Vector2(10, 3)
+points = PackedVector2Array(-7, -8, -6, -8, -5, -8, -4, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter2" type="Line2D" parent="Text" unique_id=1535895046]
+position = Vector2(0, 1)
+points = PackedVector2Array(-7, -8, -5, -8, -5, -8, -1, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter9" type="Line2D" parent="Text" unique_id=959229629]
+position = Vector2(0, 4)
+points = PackedVector2Array(-7, -8, -5, -8, -5, -8, -1, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter13" type="Line2D" parent="Text" unique_id=1032004449]
+position = Vector2(0, 5)
+points = PackedVector2Array(-7, -8, -5, -8, -5, -8, 6, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter5" type="Line2D" parent="Text" unique_id=1404962784]
+position = Vector2(0, 2)
+points = PackedVector2Array(-7, -8, -5, -8, -5, -8, 3, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter6" type="Line2D" parent="Text" unique_id=986674307]
+position = Vector2(0, 3)
+points = PackedVector2Array(-7, -8, -5, -8, -5, -8, -1, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter3" type="Line2D" parent="Text" unique_id=1900492556]
+position = Vector2(7, 1)
+points = PackedVector2Array(-7, -8, -6, -8, -5, -8, -5, -8, -4, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter10" type="Line2D" parent="Text" unique_id=117137199]
+position = Vector2(7, 4)
+points = PackedVector2Array(-7, -8, -6, -8, -5, -8, -5, -8, -4, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter4" type="Line2D" parent="Text" unique_id=1789939907]
+position = Vector2(11, 1)
+points = PackedVector2Array(-7, -8, -6, -8, -5.4448314, -8, -5, -8, -5, -8, -5, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter7" type="Line2D" parent="Text" unique_id=898154724]
+position = Vector2(11, 2)
+points = PackedVector2Array(-7, -8, -6, -8, -5.4448314, -8, -5, -8, -5, -8, -5, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter8" type="Line2D" parent="Text" unique_id=1518422686]
+position = Vector2(7, 3)
+points = PackedVector2Array(-7, -8, -6, -8, -5.4448314, -8, -5, -8, -5, -8, -5, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter11" type="Line2D" parent="Text" unique_id=872670827]
+position = Vector2(11, 4)
+points = PackedVector2Array(-7, -8, -6, -8, -5.4448314, -8, -5, -8, -5, -8, -5, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter14" type="Line2D" parent="Text" unique_id=1559583817]
+position = Vector2(0, 4)
+points = PackedVector2Array(-7, -8, -5, -8, -5, -8, -1, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter15" type="Line2D" parent="Text" unique_id=996010825]
+position = Vector2(7, 4)
+points = PackedVector2Array(-7, -8, -6, -8, -5, -8, -5, -8, -4, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="letter16" type="Line2D" parent="Text" unique_id=1315171311]
+position = Vector2(11, 4)
+points = PackedVector2Array(-7, -8, -6, -8, -5.4448314, -8, -5, -8, -5, -8, -5, -8)
+width = 0.25
+default_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1850263380]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_qkj4h")

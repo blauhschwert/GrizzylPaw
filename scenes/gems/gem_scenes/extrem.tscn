@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b3d8mdx36f5rc"]
+
+[ext_resource type="Texture2D" uid="uid://dpv6ctadrkpdy" path="res://assets/gems/gem_yellow.png" id="1_cki3n"]
+
+[node name="extrem" type="Sprite2D" unique_id=2142138777]
+texture = ExtResource("1_cki3n")

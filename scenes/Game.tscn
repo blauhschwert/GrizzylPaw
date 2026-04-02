@@ -1,7 +1,15 @@
 [gd_scene format=3 uid="uid://ciqkx5smrmefs"]
 
+[ext_resource type="Script" uid="uid://8otir2sh8cx1" path="res://scenes/game.gd" id="1_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://cuaaejtq82dm" path="res://scenes/levels/world00.tscn" id="1_ibkli"]
+[ext_resource type="PackedScene" uid="uid://cc057icedsgcn" path="res://scenes/hud/hud.tscn" id="2_qbsmt"]
 
 [node name="Game" type="Node2D" unique_id=1424945217]
+script = ExtResource("1_cpr0p")
 
 [node name="World00" parent="." unique_id=2009047631 instance=ExtResource("1_ibkli")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1536567012]
+
+[node name="LiveContainer" parent="CanvasLayer" unique_id=1290572932 instance=ExtResource("2_qbsmt")]
+scale = Vector2(1.2, 1.2)

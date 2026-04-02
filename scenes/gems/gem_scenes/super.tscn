@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cnkffwa4h2lm8"]
+
+[ext_resource type="Texture2D" uid="uid://tiiopemor335" path="res://assets/gems/gem_green.png" id="1_kgxur"]
+
+[node name="super" type="Sprite2D" unique_id=2142138777]
+texture = ExtResource("1_kgxur")

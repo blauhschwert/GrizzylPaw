@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 			move_state()
 		
 		"AttackState":
+			input_vector = Input.get_vector("move_left","move_right","move_up","move_down")
 			bear_punch.show()
 
 func move_state() -> void:
